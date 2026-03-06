@@ -16,6 +16,21 @@ const FLAMINGO_FACTS = [
   { emoji: '🫂', fact: "Flamingos form lifelong pair bonds and perform elaborate synchronized courtship dances — head-flagging, wing salutes, marching in unison." },
 ]
 
+const PENGUIN_FACTS = [
+  { emoji: '🧥', fact: "Penguins wear tuxedos for a reason. The black-and-white coloring is called countershading — dark on top to blend with the deep ocean from above, white below to blend with the bright surface from below. Evolution invented formalwear." },
+  { emoji: '🎵', fact: "Penguins can recognize their mate and chick out of thousands of others by voice alone. Every penguin has a unique call — like a biological phone number." },
+  { emoji: '💨', fact: "Emperor penguins huddle in groups of thousands to survive Antarctic winters, rotating from the freezing outside to the warm center. They are remarkably fair about it." },
+  { emoji: '🏊', fact: "Penguins are faster in the water than most fish. Gentoo penguins can swim up to 22 mph — faster than an Olympic swimmer by a factor of three." },
+  { emoji: '🪨', fact: "Male Adélie penguins gift pebbles to females as a proposal. The quality of the rock matters. Theft of premium pebbles is rampant and widely documented." },
+  { emoji: '🌡️', fact: "Emperor penguin chicks are born in -40°F Antarctic winters. The father incubates the egg on his feet for 65 days without eating, losing nearly half his body weight." },
+  { emoji: '🧭', fact: "Penguins can navigate across hundreds of miles of open ocean and return to the exact spot they were born. Scientists still aren't entirely sure how." },
+  { emoji: '🩸', fact: "Penguins have a heat exchange system in their flippers — warm blood going out heats the cold blood coming back in. Nature invented the radiator." },
+  { emoji: '🦅', fact: "Penguins evolved from flying birds. They traded flight for hydrodynamics about 60 million years ago and have been absolutely winning at swimming ever since." },
+  { emoji: '🌊', fact: "Penguins can drink seawater. They have a supraorbital gland above their eye that filters salt out of their bloodstream and excretes it through their bill." },
+  { emoji: '💤', fact: "Penguins sleep standing up, often facing into the wind. Emperor penguins can also sleep while floating at sea, which is deeply unsettling if you think about it." },
+  { emoji: '🌍', fact: "Not all penguins live in cold climates. The Galápagos penguin lives on the equator, just 1° south of the equator. Penguins contain multitudes." },
+]
+
 const PINK_FACTS = [
   { emoji: '🌸', fact: "Pink doesn't exist as a single wavelength of light. Your brain creates it by blending red and violet — it's a color your mind invents." },
   { emoji: '🏴‍☠️', fact: "Pink used to be a boy's color. In the early 1900s, pink was considered strong and bold (red-adjacent), while blue was delicate. The swap happened around the 1940s." },
@@ -31,7 +46,7 @@ export default function App() {
   const [tab, setTab] = useState('flamingos')
   const [flipped, setFlipped] = useState({})
 
-  const facts = tab === 'flamingos' ? FLAMINGO_FACTS : PINK_FACTS
+  const facts = tab === 'flamingos' ? FLAMINGO_FACTS : tab === 'penguins' ? PENGUIN_FACTS : PINK_FACTS
 
   const flip = (i) => setFlipped(prev => ({ ...prev, [i]: !prev[i] }))
 
@@ -46,6 +61,9 @@ export default function App() {
           <div className="tab-switcher">
             <button className={tab === 'flamingos' ? 'active' : ''} onClick={() => { setTab('flamingos'); setFlipped({}); }}>
               🦩 Flamingos
+            </button>
+            <button className={tab === 'penguins' ? 'active' : ''} onClick={() => { setTab('penguins'); setFlipped({}); }}>
+              🐧 Penguins
             </button>
             <button className={tab === 'pink' ? 'active' : ''} onClick={() => { setTab('pink'); setFlipped({}); }}>
               🌸 Pink
