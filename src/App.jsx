@@ -51,7 +51,7 @@ export default function App() {
   const flip = (i) => setFlipped(prev => ({ ...prev, [i]: !prev[i] }))
 
   return (
-    <div className="site">
+    <div className="site" data-tab={tab}>
       {/* Header */}
       <header className="hero">
         <div className="hero-inner">
@@ -96,9 +96,9 @@ export default function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="flamingo-row">
-          {['🦩','🦩','🦩','🦩','🦩'].map((f, i) => <span key={i} style={{ animationDelay: `${i * 0.15}s` }}>{f}</span>)}
+          {(tab === 'penguins' ? ['🐧','🐧','🐧','🐧','🐧'] : ['🦩','🦩','🦩','🦩','🦩']).map((f, i) => <span key={i} style={{ animationDelay: `${i * 0.15}s` }}>{f}</span>)}
         </div>
-        <p>a flamboyance of facts</p>
+        <p>{tab === 'penguins' ? 'a waddle of facts' : 'a flamboyance of facts'}</p>
       </footer>
     </div>
   )
